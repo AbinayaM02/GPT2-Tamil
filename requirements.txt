@@ -1,0 +1,7 @@
+tqdm
+transformers
+datasets
+jax
+jaxlib
+flax
+optax
