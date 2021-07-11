@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-./run_clm_flax.py \
+../src/run_clm_flax.py \
     --output_dir="${MODEL_DIR}" \
     --model_type="gpt2" \
     --config_name="${MODEL_DIR}" \
