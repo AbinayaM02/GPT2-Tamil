@@ -1,7 +1,7 @@
 from datasets import load_dataset
 from tokenizers import ByteLevelBPETokenizer  # Tokenizer, normalizers, trainers
 
-model_dir = "./gpt2-tamil"  # ${MODEL_DIR}
+model_dir = "../gpt-2-tamil"  # ${MODEL_DIR}
 
 # load dataset
 dataset = load_dataset("oscar", "unshuffled_deduplicated_ta", split="train")
