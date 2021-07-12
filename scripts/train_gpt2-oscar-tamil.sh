@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 python ../src/run_clm_flax.py \
-    --output_dir="../tmp/${MODEL_DIR}" \
+    --output_dir="${MODEL_DIR}" \
     --model_type="gpt2" \
     --config_name="${MODEL_DIR}" \
     --tokenizer_name="${MODEL_DIR}" \
@@ -14,8 +14,12 @@ python ../src/run_clm_flax.py \
     --warmup_steps="1000" \
     --adam_beta1="0.9" --adam_beta2="0.98" --weight_decay="0.01" \
     --overwrite_output_dir \
-    --num_train_epochs="1" \
+    --num_train_epochs="25" \
     --report_to wandb \
     --run_name trial \
+    --logging_steps="500" \
+    --save_steps="2500" \
+    --eval_steps="2500" \
+    --preprocessing_num_workers="90" \
     #--push_to_hub
     2>&1 | tee run.log
