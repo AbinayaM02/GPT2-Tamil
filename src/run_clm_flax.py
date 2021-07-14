@@ -279,6 +279,12 @@ def main():
     #
     # In distributed training, the load_dataset function guarantees that only one local process can concurrently
     # download the dataset.
+
+    #GPT-2 tamil
+    logger.info(f"Loading dataset....")
+    print("Loading indic corp tamil dataset")
+    indic_tamil = load_dataset("csv",data_files="/tmp/indic_corp/ta.csv")
+
     if data_args.dataset_name is not None:
         # Downloading and loading a dataset from the hub.
         dataset = load_dataset(
@@ -298,6 +304,10 @@ def main():
                 split=f"train[{data_args.validation_split_percentage}%:]",
                 cache_dir=model_args.cache_dir,
             )
+            ## GPT2-tamil - adding indic_corp dataset manually
+            print("Concatenating datasets")
+            pdb.set_trace()
+            dataset['train'] = concatenate_datasets([indic_tamil['train'],dataset['train']])
     else:
         data_files = {}
         if data_args.train_file is not None:
