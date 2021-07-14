@@ -31,7 +31,7 @@ from pathlib import Path
 from typing import Callable, Optional
 
 import datasets
-from datasets import Dataset, load_dataset
+from datasets import Dataset, load_dataset, concatenate_datasets
 from tqdm import tqdm
 
 import jax
