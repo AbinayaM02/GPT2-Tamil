@@ -1,11 +1,12 @@
-from datasets import load_dataset
-from tokenizers import ByteLevelBPETokenizer  # Tokenizer, normalizers, trainers
-
-model_dir = "./gpt2-tamil"  # ${MODEL_DIR}
+from datasets import load_dataset,concatenate_datasets
+from tokenizers import trainers, Tokenizer, normalizers, ByteLevelBPETokenizer
+import pdb
+model_dir = "./gpt2_tamil"  # ${MODEL_DIR}
 
 # load dataset
 dataset = load_dataset("oscar", "unshuffled_deduplicated_ta", split="train")
-
+indic_tamil = load_dataset("csv",data_files="/tmp/indic_corp/ta.csv")
+dataset = concatenate_datasets([dataset,indic_tamil['train']])
 # Instantiate tokenizer
 tokenizer = ByteLevelBPETokenizer()
 
