@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-./run_clm_flax.py \
+python ../src/run_clm_flax.py \
     --output_dir="${MODEL_DIR}" \
     --model_type="gpt2" \
     --config_name="${MODEL_DIR}" \
@@ -10,8 +10,16 @@
     --block_size="512" \
     --per_device_train_batch_size="64" \
     --per_device_eval_batch_size="64" \
-    --learning_rate="5e-3" --warmup_steps="1000" \
+    --learning_rate="3e-5" \
+    --warmup_steps="1000" \
     --adam_beta1="0.9" --adam_beta2="0.98" --weight_decay="0.01" \
     --overwrite_output_dir \
-    --num_train_epochs="20" \
+    --num_train_epochs="25" \
+    --report_to wandb \
+    --run_name trial \
+    --logging_steps="500" \
+    --save_steps="2500" \
+    --eval_steps="2500" \
+    --preprocessing_num_workers="90" \
     #--push_to_hub
+    2>&1 | tee run.log

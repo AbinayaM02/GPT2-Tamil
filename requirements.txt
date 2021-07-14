@@ -5,3 +5,4 @@ jax
 jaxlib
 flax
 optax
+wandb
