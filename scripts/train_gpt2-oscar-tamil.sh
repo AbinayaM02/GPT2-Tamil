@@ -14,7 +14,7 @@ python ../src/run_clm_flax.py \
     --warmup_steps="1000" \
     --adam_beta1="0.9" --adam_beta2="0.98" --weight_decay="0.01" \
     --overwrite_output_dir \
-    --num_train_epochs="25" \
+    --num_train_epochs="10" \
     --report_to wandb \
     --run_name trial \
     --logging_steps="500" \

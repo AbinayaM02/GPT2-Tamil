@@ -451,8 +451,8 @@ def main():
     has_tensorboard = is_tensorboard_available()
     if has_tensorboard and jax.process_index() == 0:
         wandb.init(
-            entity='abinayam',
-            project='hf-flax-gpt-2-tamil',
+            entity='wandb',
+            project='hf-flax-gpt2-tamil',
             sync_tensorboard=True
         )  
         
